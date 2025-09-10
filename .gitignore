@@ -1,0 +1,6 @@
+#files
+*.exe
+*.obj
+*.o
+#folders
+.vscode/
