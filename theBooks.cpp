@@ -4,6 +4,16 @@
 using namespace std;
 enum switch1{InsertBook=1, ViewBook, FindBook, ModifyBook};
 enum switch2{Fiction=1, Nonfiction};
+
+class Book{
+	public:
+		  string FicBooks[100][5];
+		  string NonFicBooks[100][5];
+		 // string title,author,language;
+		 //  int ibsn,quantity;
+		   int ficBookCount = 0;
+		   int nonFicBookCount = 0;
+};
 int main(){
 
 string title1,title2,language1,language2, author1,author2;
