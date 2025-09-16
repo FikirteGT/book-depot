@@ -61,6 +61,13 @@ public:
 				cout<<FicBooks[i][0]<<setw(30)<<FicBooks[i][1]<<setw(30)<<FicBooks[i][2]<<setw(20)<<FicBooks[i][3]<<setw(20)<<FicBooks[i][4]<<endl;
 			}
 		}
+		void DisNonFicBooks(){
+		    cout<<setw(60)<<"Non-Fiction Books\n";
+			cout<<"Title"<<setw(30)<<"Author"<<setw(30)<<"IBSN"<<setw(20)<<"Language"<<setw(20)<<"Quantity"<<endl;
+			for(int i=0; i<nonFicBookCount; i++){
+				cout<<NonFicBooks[i][0]<<setw(30)<<NonFicBooks[i][1]<<setw(30)<<NonFicBooks[i][2]<<setw(20)<<NonFicBooks[i][3]<<setw(20)<<NonFicBooks[i][4]<<endl;
+			}    	
+		}
 };
 int main(){
 
