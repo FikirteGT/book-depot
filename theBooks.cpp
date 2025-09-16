@@ -19,10 +19,10 @@ class RegisterBook : public Book{
 		  void RegFicBooks(int num){
 		   // this->num= numR;
 		  	for(int i=0; i<num; i++){
-		  	cout<<"BOOK "<<i+1<<endl;
-			cout<<"    1.Title: ";
+		  	 cout<<"BOOK "<<i+1<<endl;
+			 cout<<"    1.Title: ";
 		     getline(cin, FicBooks[ficBookCount][0]);			    
-		  	cout<<"    2.Author: ";
+		  	 cout<<"    2.Author: ";
 		  	 getline(cin, FicBooks[ficBookCount][1]);
 		  	///NOT DONE
 		     cout<<"    3.ISBN: ";
@@ -57,6 +57,7 @@ switch1 choose;
 switch2 choosegenra;
 RegisterBook b1;
 int num1,num2;
+string again;
 char symbol[100];
 
 fill(symbol, symbol + 100, '*');
@@ -70,6 +71,8 @@ for(char asterisk : symbol){
 	cout<<asterisk;
 }
 
+do{
+	
 cout<<"\n1.Add new books"<<endl
     <<"2.Show all books"<<endl
     <<"3.Find a book"<<endl
@@ -110,5 +113,12 @@ switch(choose){
        cout<<"invalid input";
 
 }
+do{
+    cout<<"\n Do you want to do it again?(Yes/No) ";
+    cin>>again;
+		
+   }while(!(again=="yes"||again=="no"));
+}while(again=="yes");
+cout<<"Thank you ;)";
 //return 0;
 }
