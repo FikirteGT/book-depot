@@ -3,7 +3,7 @@
 
 using namespace std;
 enum switch1{InsertBook=1, ViewBook, FindBook, ModifyBook};
-enum switch2{Fiction=1, Nonfiction};
+enum switch2{Fiction=1, Nonfiction, allBooks};
 
 class Book{
 	public:
@@ -125,7 +125,8 @@ switch(choose){
     case ViewBook:
 		cout<<"which books you wanna see?\n"
 		    <<"1. Fiction Books\n"
-		    <<"2. Non Fiction Books\n";
+		    <<"2. Non Fiction Books\n"
+			<<"3. All Available Books\n";
 		int tempoShow;
 		cin>>tempoShow;
 		chooseShow = static_cast<switch2> (tempoShow);
@@ -137,6 +138,10 @@ switch(choose){
 	        case Nonfiction:
     	            b1.DisNonFicBooks();
 	                break;
+			case allBooks:
+	        	    b1.DisFicBooks();
+	        	    b1.DisNonFicBooks();
+	        	    break;
 	        default:
 			       cout<<"invalid input";	    
 		}
