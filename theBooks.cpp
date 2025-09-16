@@ -73,8 +73,8 @@ int main(){
 
 switch1 choose;
 switch2 choosegenra;
-RegisterBook b1;
-int num1,num2;
+DisplayBook b1;
+int num1,num2,chooseShow;
 string again;
 char symbol[100];
 
@@ -121,8 +121,27 @@ switch(choose){
 	       	       break;
 		    }
 	  break;
+
     case ViewBook:
+		cout<<"which books you wanna see?\n"
+		    <<"1. Fiction Books\n"
+		    <<"2. Non Fiction Books\n";
+		int tempoShow;
+		cin>>tempoShow;
+		chooseShow = static_cast<switch2> (tempoShow);
+		cin.ignore();
+		switch(chooseShow){
+			case Fiction:
+	            	b1.DisFicBooks();
+	            	break;
+	        case Nonfiction:
+    	            b1.DisNonFicBooks();
+	                break;
+	        default:
+			       cout<<"invalid input";	    
+		}
       break;
+
     case FindBook:
       break;
     case ModifyBook:
