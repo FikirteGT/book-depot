@@ -51,6 +51,17 @@ class RegisterBook : public Book{
 			  }
 		  }
 };
+class DisplayBook : public RegisterBook{
+public:
+		void DisFicBooks(){
+		//	numR = numR + num;
+		    cout<<setw(50)<<"Fiction Books\n";
+			cout<<"Title"<<setw(30)<<"Author"<<setw(30)<<"IBSN"<<setw(20)<<"Language"<<setw(20)<<"Quantity"<<endl;
+			for(int i=0; i<ficBookCount; i++){
+				cout<<FicBooks[i][0]<<setw(30)<<FicBooks[i][1]<<setw(30)<<FicBooks[i][2]<<setw(20)<<FicBooks[i][3]<<setw(20)<<FicBooks[i][4]<<endl;
+			}
+		}
+};
 int main(){
 
 switch1 choose;
@@ -116,7 +127,7 @@ switch(choose){
 do{
     cout<<"\n Do you want to do it again?(Yes/No) ";
     cin>>again;
-		
+
    }while(!(again=="yes"||again=="no"));
 }while(again=="yes");
 cout<<"Thank you ;)";
