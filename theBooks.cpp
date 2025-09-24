@@ -35,14 +35,16 @@ class RegisterBook : public Book{
 			 cout<<"    2.Author: ";
 		  	 getline(cin, FicBooks[ficBookCount][1]);
 		   }while(check.digitChecker(FicBooks[ficBookCount][1]));
-		     cout<<"    3.ISBN: ";
+		  do{
+             cout<<"    3.ISBN: ";
 		  	 getline(cin, FicBooks[ficBookCount][2]);
+		   }while(!check.digitChecker(FicBooks[ficBookCount][2]));
 		 do{
 		     cout<<"    4.Language: ";
 		  	 getline(cin, FicBooks[ficBookCount][3]);
 		   }while(check.digitChecker(FicBooks[ficBookCount][3]));
-		     cout<<"    5.Quantity: ";
-		  	 getline(cin, FicBooks[ficBookCount][4]);
+		  cout<<"    5.Quantity: ";
+		  getline(cin, FicBooks[ficBookCount][4]);
 			 ficBookCount++;
 			  }
 		  }
@@ -51,19 +53,21 @@ class RegisterBook : public Book{
 		  	cout<<"BOOK "<<i+1<<endl;	
 		    cout<<"    1.Title: ";
 		    getline(cin, NonFicBooks[nonFicBookCount][0]);
-		do{
+		  do{
              cout<<"    2.Author: ";
 		  	 getline(cin, NonFicBooks[nonFicBookCount][1]);
 		   }while(check.digitChecker(NonFicBooks[nonFicBookCount][1]));	
-		     cout<<"    3.ISBN: ";
+		  do{
+             cout<<"    3.ISBN: ";
 		  	 getline(cin, NonFicBooks[nonFicBookCount][2]);
+		   }while(!check.digitChecker(NonFicBooks[nonFicBookCount][2]));
 		  do{
 		     cout<<"    4.Language: ";
 		  	 getline(cin, NonFicBooks[nonFicBookCount][3]);
 		   }while(check.digitChecker(NonFicBooks[nonFicBookCount][3]));
-		     cout<<"    5.Quantity: ";
+     		 cout<<"    5.Quantity: ";
 		  	 getline(cin, NonFicBooks[nonFicBookCount][4]);
-		    nonFicBookCount++;
+		     nonFicBookCount++;
 			  }
 		  }
 };
