@@ -2,9 +2,17 @@
 #include <iomanip>
 
 using namespace std;
-enum switch1{InsertBook=1, ViewBook, FindBook, ModifyBook};
-enum switch2{Fiction=1, Nonfiction, allBooks};
+enum menu{InsertBook=1, ViewBook, FindBook, ModifyBook};
+enum genre{Fiction=1, Nonfiction, allBooks};
 
+struct ToCheck{
+  bool digitChecker(const string& input){
+		for(int i=0; i<input.length(); i++){
+		  	if(!isdigit(input[i])) return false;
+		}
+		return true;
+	}	
+};
 class Book{
 	public:
 		  string FicBooks[100][5];
@@ -16,19 +24,21 @@ class Book{
 };
 class RegisterBook : public Book{
   public:
+      ToCheck check;
 		  void RegFicBooks(int num){
 		   // this->num= numR;
 		  	for(int i=0; i<num; i++){
 		  	 cout<<"BOOK "<<i+1<<endl;
 			 cout<<"    1.Title: ";
 		     getline(cin, FicBooks[ficBookCount][0]);			    
-		  	 cout<<"    2.Author: ";
+             cout<<"    2.Author: ";
 		  	 getline(cin, FicBooks[ficBookCount][1]);
-		  	///NOT DONE
 		     cout<<"    3.ISBN: ";
 		  	 getline(cin, FicBooks[ficBookCount][2]);
+		 do{
 		     cout<<"    4.Language: ";
 		  	 getline(cin, FicBooks[ficBookCount][3]);
+		   }while(check.digitChecker(FicBooks[ficBookCount][3]));
 		     cout<<"    5.Quantity: ";
 		  	 getline(cin, FicBooks[ficBookCount][4]);
 			 ficBookCount++;
@@ -38,16 +48,18 @@ class RegisterBook : public Book{
 		  	for(int i=0; i<num; i++){
 		  	cout<<"BOOK "<<i+1<<endl;	
 		    cout<<"    1.Title: ";
-		     getline(cin, NonFicBooks[nonFicBookCount][0]);
-		  	cout<<"    2.Author: ";
+		    getline(cin, NonFicBooks[nonFicBookCount][0]);
+             cout<<"    2.Author: ";
 		  	 getline(cin, NonFicBooks[nonFicBookCount][1]);
-			cout<<"    3.ISBN ";///NOT DONE
+		     cout<<"    3.ISBN: ";
 		  	 getline(cin, NonFicBooks[nonFicBookCount][2]);
-		    cout<<"    4.Language: ";
+		  do{
+		     cout<<"    4.Language: ";
 		  	 getline(cin, NonFicBooks[nonFicBookCount][3]);
-		    cout<<"    5.Quantity: ";
+		   }while(check.digitChecker(NonFicBooks[nonFicBookCount][3]));
+		     cout<<"    5.Quantity: ";
 		  	 getline(cin, NonFicBooks[nonFicBookCount][4]);
-		  nonFicBookCount++;
+		    nonFicBookCount++;
 			  }
 		  }
 };
@@ -71,8 +83,8 @@ public:
 };
 int main(){
 
-switch1 choose;
-switch2 choosegenra;
+menu choose;
+genre choosegenra;
 DisplayBook b1;
 int num1,num2,chooseShow;
 string again;
@@ -97,7 +109,7 @@ cout<<"\n1.Add new books"<<endl
     <<"4.Edit book detail"<<endl;
   int tempoChoose;
   cin>> tempoChoose;
-      choose = static_cast<switch1>(tempoChoose);
+      choose = static_cast<menu>(tempoChoose);
 switch(choose){
     case InsertBook:
       cout<<"what is the genra of the book/s?\n"
@@ -105,7 +117,7 @@ switch(choose){
 	        <<"  2.Non-Fiction Genra\n";
 	   int tempoGenra;
 	    cin>>tempoGenra;
-	       choosegenra = static_cast<switch2>(tempoGenra);	     
+	       choosegenra = static_cast<genre>(tempoGenra);	     
 	       switch(choosegenra){
 	       	 case Fiction:
 	       	       	cout<<"How many books do you want to enter? ";
@@ -121,7 +133,6 @@ switch(choose){
 	       	       break;
 		    }
 	  break;
-
     case ViewBook:
 		cout<<"which books you wanna see?\n"
 		    <<"1. Fiction Books\n"
@@ -129,7 +140,7 @@ switch(choose){
 			<<"3. All Available Books\n";
 		int tempoShow;
 		cin>>tempoShow;
-		chooseShow = static_cast<switch2> (tempoShow);
+		chooseShow = static_cast<genre> (tempoShow);
 		cin.ignore();
 		switch(chooseShow){
 			case Fiction:
@@ -143,24 +154,22 @@ switch(choose){
 	        	    b1.DisNonFicBooks();
 	        	    break;
 	        default:
-			       cout<<"invalid input";	    
+			       cout <<"invalid input";	    
 		}
       break;
-
     case FindBook:
       break;
     case ModifyBook:
       break;
     default:
        cout<<"invalid input";
-
 }
 do{
     cout<<"\n Do you want to do it again?(Yes/No) ";
     cin>>again;
 
    }while(!(again=="yes"||again=="no"));
-}while(again=="yes");
+}while(again == "yes");
 cout<<"Thank you ;)";
 //return 0;
 }
