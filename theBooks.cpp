@@ -31,8 +31,10 @@ class RegisterBook : public Book{
 		  	 cout<<"BOOK "<<i+1<<endl;
 			 cout<<"    1.Title: ";
 		     getline(cin, FicBooks[ficBookCount][0]);			    
-             cout<<"    2.Author: ";
+         do{
+			 cout<<"    2.Author: ";
 		  	 getline(cin, FicBooks[ficBookCount][1]);
+		   }while(check.digitChecker(FicBooks[ficBookCount][1]));
 		     cout<<"    3.ISBN: ";
 		  	 getline(cin, FicBooks[ficBookCount][2]);
 		 do{
@@ -49,8 +51,10 @@ class RegisterBook : public Book{
 		  	cout<<"BOOK "<<i+1<<endl;	
 		    cout<<"    1.Title: ";
 		    getline(cin, NonFicBooks[nonFicBookCount][0]);
+		do{
              cout<<"    2.Author: ";
 		  	 getline(cin, NonFicBooks[nonFicBookCount][1]);
+		   }while(check.digitChecker(NonFicBooks[nonFicBookCount][1]));	
 		     cout<<"    3.ISBN: ";
 		  	 getline(cin, NonFicBooks[nonFicBookCount][2]);
 		  do{
