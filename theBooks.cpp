@@ -11,7 +11,14 @@ struct ToCheck{
 		  	if(!isdigit(input[i])) return false;
 		}
 		return true;
-	}	
+	}
+ void letterChecker( string& input){
+    	for(int i=0; i<input.length(); i++){
+    	  if(isupper(input[i])){
+    		input[i] = tolower(input[i]);
+		  }     
+	    }
+	}		
 };
 class Book{
 	public:
@@ -100,6 +107,8 @@ genre choosegenra;
 DisplayBook b1;
 int num1,num2,chooseShow;
 string again;
+ToCheck check;
+
 char symbol[100];
 
 fill(symbol, symbol + 100, '*');
@@ -179,9 +188,9 @@ switch(choose){
 do{
     cout<<"\n Do you want to do it again?(Yes/No) ";
     cin>>again;
-
+    check.letterChecker(again);
    }while(!(again=="yes"||again=="no"));
 }while(again == "yes");
 cout<<"Thank you ;)";
-//return 0;
+return 0;
 }
