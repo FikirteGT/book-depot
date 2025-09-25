@@ -39,12 +39,14 @@ class RegisterBook : public Book{
              cout<<"    3.ISBN: ";
 		  	 getline(cin, FicBooks[ficBookCount][2]);
 		   }while(!check.digitChecker(FicBooks[ficBookCount][2]));
-		 do{
+		  do{
 		     cout<<"    4.Language: ";
 		  	 getline(cin, FicBooks[ficBookCount][3]);
-		   }while(check.digitChecker(FicBooks[ficBookCount][3]));
-		  cout<<"    5.Quantity: ";
-		  getline(cin, FicBooks[ficBookCount][4]);
+		  }while(check.digitChecker(FicBooks[ficBookCount][3]));
+		 do{
+             cout<<"    5.Quantity: ";
+		     getline(cin, FicBooks[ficBookCount][4]);
+		  }while(!check.digitChecker(FicBooks[ficBookCount][4]));
 			 ficBookCount++;
 			  }
 		  }
@@ -65,9 +67,11 @@ class RegisterBook : public Book{
 		     cout<<"    4.Language: ";
 		  	 getline(cin, NonFicBooks[nonFicBookCount][3]);
 		   }while(check.digitChecker(NonFicBooks[nonFicBookCount][3]));
-     		 cout<<"    5.Quantity: ";
-		  	 getline(cin, NonFicBooks[nonFicBookCount][4]);
-		     nonFicBookCount++;
+     	  do{
+             cout<<"    5.Quantity: ";
+		  	 getline(cin, NonFicBooks[nonFicBookCount][4]); 
+		  }while(!check.digitChecker(NonFicBooks[nonFicBookCount][4]));
+		   nonFicBookCount++;
 			  }
 		  }
 };
