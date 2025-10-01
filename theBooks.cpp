@@ -100,13 +100,32 @@ public:
 			}    	
 		}
 };
+class SearchBook : public DisplayBook {
+ public:
+
+   void display(string find){
+
+       // Search Fiction
+       for(int i = 0; i < ficBookCount; i++){
+           if(FicBooks[i][0] == find){
+             cout<<"Title"<<setw(30)<<"Author"<<setw(30)<<"ISBN"
+                          <<setw(20)<<"Language"<<setw(20)<<"Quantity"<<endl;
+             cout<<FicBooks[i][0]<<setw(30)<<FicBooks[i][1]
+                            <<setw(30)<<FicBooks[i][2]<<setw(20)<<FicBooks[i][3]
+                            <<setw(20)<<FicBooks[i][4]<<endl;
+               return;
+           }
+       }
+       cout << "sorry no such book";
+   }
+};
 int main(){
 
 menu choose;
 genre choosegenra;
-DisplayBook b1;
+SearchBook b1;
 int num1,num2,chooseShow;
-string again;
+string again, search;
 ToCheck check;
 
 char symbol[100];
@@ -179,6 +198,10 @@ switch(choose){
 		}
       break;
     case FindBook:
+	    cout<<"Enter the title of the book you want to search: ";
+		cin.ignore();
+        getline(cin, search);
+		b1.display(search);
       break;
     case ModifyBook:
       break;
