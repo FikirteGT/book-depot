@@ -152,29 +152,32 @@ class UpdateBook : public SearchBook {
 						FicBooks[i][0] =  Newtitle;        
 			            break;
 			          case author:
-			          	cout<<"New author: ";
+			           do{
+						cout<<"New author: ";
 			          	getline(cin, NewAuthor);
 			          	FicBooks[i][1] = NewAuthor;
-			            break;
+					   }while(check.digitChecker(NewAuthor));
+						break;
 			          case isbn:
 			            cout<<"New ISBN: ";
 			          	getline(cin, NewIsbn);
 			          	FicBooks[i][2] = NewIsbn;
 			            break;
 		              case language:
-		              	  cout<<"New Language: ";
-			          	  getline(cin, NewLanguage);
+		               do{
+					    cout<<"New Language: ";
+			          	getline(cin, NewLanguage);
 						FicBooks[i][3] = NewLanguage;
-			            break;
+					   }while(check.digitChecker(NewLanguage));
+						break;
 		              case quantity:
-		              	 cout<<"New quantity: ";
-			          	 getline(cin, NewQuantity);	
+		              	cout<<"New quantity: ";
+			          	getline(cin, NewQuantity);	
 						FicBooks[i][4] = NewQuantity;
 			            break;
 		      	      default:
 				        cout<<"invalid choice";
-		            }            
-		            
+		            }                        
 		 	     	return;
 				 }
 		    }
