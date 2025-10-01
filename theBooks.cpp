@@ -116,6 +116,17 @@ class SearchBook : public DisplayBook {
                return;
            }
        }
+	   // Search Non-Fiction
+       for(int i = 0; i < nonFicBookCount; i++){
+           if(NonFicBooks[i][0] == find){
+                cout<<"Title"<<setw(30)<<"Author"<<setw(30)<<"ISBN"
+                        <<setw(20)<<"Language"<<setw(20)<<"Quantity"<<endl;
+                cout<<NonFicBooks[i][0]<<setw(30)<<NonFicBooks[i][1]
+                        <<setw(30)<<NonFicBooks[i][2]<<setw(20)<<NonFicBooks[i][3]
+                        <<setw(20)<<NonFicBooks[i][4]<<endl;
+               return;
+           }
+       }
        cout << "sorry no such book";
    }
 };
