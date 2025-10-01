@@ -4,6 +4,7 @@
 using namespace std;
 enum menu{InsertBook=1, ViewBook, FindBook, ModifyBook};
 enum genre{Fiction=1, Nonfiction, allBooks};
+enum aboutBook{title=1, author, isbn, language, quantity};
 
 struct ToCheck{
   bool digitChecker(const string& input){
@@ -24,8 +25,6 @@ class Book{
 	public:
 		  string FicBooks[100][5];
 		  string NonFicBooks[100][5];
-		 // string title,author,language;
-		 //  int ibsn,quantity;
 		   int ficBookCount = 0;
 		   int nonFicBookCount = 0;
 };
@@ -130,11 +129,63 @@ class SearchBook : public DisplayBook {
        cout << "sorry no such book";
    }
 };
+class UpdateBook : public SearchBook {
+	public:
+		string Newtitle,NewAuthor,NewLanguage,NewIsbn,NewQuantity; 
+
+		void edit(string target){ 
+		  for(int i = 0; i < ficBookCount; i++){
+           if(FicBooks[i][0] == target){
+			cout<<"Title"<<setw(30)<<"Author"<<setw(30)<<"IBSN"<<setw(20)<<"Language"<<setw(20)<<"Quantity"<<endl;			    	
+		 	        cout<<FicBooks[i][0]<<setw(30)<<FicBooks[i][1]<<setw(30)<<FicBooks[i][2]<<setw(20)<<FicBooks[i][3]<<setw(20)<<FicBooks[i][4]<<endl;
+		 	        cout<<"which part do you to modify?\n"
+	                    <<"1.Title\n2.Author\n3.IBSN\n4.Language\n5.Quantity\n";
+		            int tempoEditable;
+					cin>> tempoEditable;
+					cin.ignore();
+					aboutBook editable;
+		            editable = static_cast<aboutBook> (tempoEditable);
+		            switch(editable){
+			          case title:
+					    cout<<"New title: ";
+			            getline(cin, Newtitle); 
+						FicBooks[i][0] =  Newtitle;        
+			            break;
+			          case author:
+			          	cout<<"New author: ";
+			          	getline(cin, NewAuthor);
+			          	FicBooks[i][1] = NewAuthor;
+			            break;
+			          case isbn:
+			            cout<<"New ISBN: ";
+			          	getline(cin, NewIsbn);
+			          	FicBooks[i][2] = NewIsbn;
+			            break;
+		              case language:
+		              	  cout<<"New Language: ";
+			          	  getline(cin, NewLanguage);
+						FicBooks[i][3] = NewLanguage;
+			            break;
+		              case quantity:
+		              	 cout<<"New quantity: ";
+			          	 getline(cin, NewQuantity);	
+						FicBooks[i][4] = NewQuantity;
+			            break;
+		      	      default:
+				        cout<<"invalid choice";
+		            }            
+		            
+		 	     	return;
+				 }
+		    }
+				cout<<"no such book";
+		}    
+};
 int main(){
 
 menu choose;
 genre choosegenra;
-SearchBook b1;
+UpdateBook b1;
 int num1,num2,chooseShow;
 string again, search;
 ToCheck check;
@@ -215,6 +266,12 @@ switch(choose){
 		b1.display(search);
       break;
     case ModifyBook:
+	    cout<<"Enter the title of the book you want to modify: ";
+		cin.ignore();
+		getline(cin, search);
+		b1.edit(search);
+		cout<<"your editing has successfully finished";
+		
       break;
     default:
        cout<<"invalid input";
