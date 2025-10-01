@@ -159,9 +159,11 @@ class UpdateBook : public SearchBook {
 					   }while(check.digitChecker(NewAuthor));
 						break;
 			          case isbn:
-			            cout<<"New ISBN: ";
+			           do{
+						cout<<"New ISBN: ";
 			          	getline(cin, NewIsbn);
 			          	FicBooks[i][2] = NewIsbn;
+					   }while(!check.digitChecker(NewIsbn));
 			            break;
 		              case language:
 		               do{
@@ -170,11 +172,13 @@ class UpdateBook : public SearchBook {
 						FicBooks[i][3] = NewLanguage;
 					   }while(check.digitChecker(NewLanguage));
 						break;
-		              case quantity:
-		              	cout<<"New quantity: ";
+		              case quantity:   
+					   do{ 
+						cout<<"New quantity: ";
 			          	getline(cin, NewQuantity);	
 						FicBooks[i][4] = NewQuantity;
-			            break;
+     				   }while(!check.digitChecker(NewQuantity));
+						break;
 		      	      default:
 				        cout<<"invalid choice";
 		            }                        
