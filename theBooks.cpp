@@ -279,12 +279,14 @@ cout<<"\n1.Add new books"<<endl
       choose = static_cast<menu>(tempoChoose);
 switch(choose){
     case InsertBook:
-      cout<<"what is the genra of the book/s?\n"
+        int tempoGenra;
+	  do{ 
+		cout<<"what is the genra of the book/s?\n"
 	        <<"  1.Fiction Genra\n"
 	        <<"  2.Non-Fiction Genra\n";
-	   int tempoGenra;
 	    cin>>tempoGenra;
-	       choosegenra = static_cast<genre>(tempoGenra);	     
+	  }while(tempoGenra != 1 && tempoGenra !=2);  
+		choosegenra = static_cast<genre>(tempoGenra);	     
 	       switch(choosegenra){
 	       	 case Fiction:
 	       	       	cout<<"How many books do you want to enter? ";
