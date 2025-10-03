@@ -86,14 +86,14 @@ public:
 		void DisFicBooks(){
 		//	numR = numR + num;
 		    cout<<setw(50)<<"Fiction Books\n";
-			cout<<"Title"<<setw(30)<<"Author"<<setw(30)<<"IBSN"<<setw(20)<<"Language"<<setw(20)<<"Quantity"<<endl;
+			cout<<"\nTitle"<<setw(30)<<"Author"<<setw(30)<<"IBSN"<<setw(20)<<"Language"<<setw(20)<<"Quantity"<<endl;
 			for(int i=0; i<ficBookCount; i++){
 				cout<<FicBooks[i][0]<<setw(30)<<FicBooks[i][1]<<setw(30)<<FicBooks[i][2]<<setw(20)<<FicBooks[i][3]<<setw(20)<<FicBooks[i][4]<<endl;
 			}
 		}
 		void DisNonFicBooks(){
 		    cout<<setw(60)<<"Non-Fiction Books\n";
-			cout<<"Title"<<setw(30)<<"Author"<<setw(30)<<"IBSN"<<setw(20)<<"Language"<<setw(20)<<"Quantity"<<endl;
+			cout<<"\nTitle"<<setw(30)<<"Author"<<setw(30)<<"IBSN"<<setw(20)<<"Language"<<setw(20)<<"Quantity"<<endl;
 			for(int i=0; i<nonFicBookCount; i++){
 				cout<<NonFicBooks[i][0]<<setw(30)<<NonFicBooks[i][1]<<setw(30)<<NonFicBooks[i][2]<<setw(20)<<NonFicBooks[i][3]<<setw(20)<<NonFicBooks[i][4]<<endl;
 			}    	
@@ -140,12 +140,12 @@ class UpdateBook : public SearchBook {
 		 	        cout<<FicBooks[i][0]<<setw(30)<<FicBooks[i][1]<<setw(30)<<FicBooks[i][2]<<setw(20)<<FicBooks[i][3]<<setw(20)<<FicBooks[i][4]<<endl;
 		 	        cout<<"which part do you to modify?\n"
 	                    <<"1.Title\n2.Author\n3.IBSN\n4.Language\n5.Quantity\n";
-		            int tempoEditable;
-					cin>> tempoEditable;
+		            int tempoTobeEdit;
+					cin>> tempoTobeEdit;
 					cin.ignore();
-					aboutBook editable;
-		            editable = static_cast<aboutBook> (tempoEditable);
-		            switch(editable){
+					aboutBook toBeEdit;
+		            toBeEdit = static_cast<aboutBook> (tempoTobeEdit);
+		            switch(toBeEdit){
 			          case title:
 					    cout<<"New title: ";
 			            getline(cin, Newtitle); 
@@ -193,12 +193,12 @@ class UpdateBook : public SearchBook {
 			    	cout<<NonFicBooks[i][0]<<setw(30)<<NonFicBooks[i][1]<<setw(30)<<NonFicBooks[i][2]<<setw(20)<<NonFicBooks[i][3]<<setw(20)<<NonFicBooks[i][4]<<endl;
 		 	     	cout<<"which part u wanna modify?\n"
 	                    <<"1.Title\n2.Author\n3.IBSN\n4.Language\n5.Quantity\n";
-		            int tempoEditable;
-					cin>> tempoEditable;
+		            int tempoTobeEdit;
+					cin>> tempoTobeEdit;
 					cin.ignore();
-					aboutBook editable;
-		            editable = static_cast<aboutBook> (tempoEditable);
-		            switch(editable){
+					aboutBook toBeEdit;
+		            toBeEdit = static_cast<aboutBook> (tempoTobeEdit);
+		            switch(toBeEdit){
 			          case title:
 					    cout<<"New title: ";
 			            getline(cin, Newtitle); 
@@ -335,9 +335,16 @@ switch(choose){
 		cin.ignore();
 		getline(cin, search);
 		b1.edit(search);
-		cout<<"your editing has successfully finished";
-		
-      break;
+		cout<<"\nyour editing has successfully finished\n";
+		for(int i=0; i<25; i++){
+           cout<<"  *  ";
+		}
+		cout<<endl; 
+		b1.display(search);
+		for(int i=0; i<25; i++){
+           cout<<"  *  ";
+		} 
+		   break;
     default:
        cout<<"invalid input";
 }
