@@ -151,35 +151,40 @@ class UpdateBook : public SearchBook {
 			            getline(cin, Newtitle); 
 						FicBooks[i][0] =  Newtitle;        
 			            break;
-			          case author:
+			          
+						case author:
 			           do{
 						cout<<"New author: ";
 			          	getline(cin, NewAuthor);
 			          	FicBooks[i][1] = NewAuthor;
 					   }while(check.digitChecker(NewAuthor));
 						break;
-			          case isbn:
+			          
+						case isbn:
 			           do{
 						cout<<"New ISBN: ";
 			          	getline(cin, NewIsbn);
 			          	FicBooks[i][2] = NewIsbn;
 					   }while(!check.digitChecker(NewIsbn));
 			            break;
-		              case language:
+		              
+						case language:
 		               do{
 					    cout<<"New Language: ";
 			          	getline(cin, NewLanguage);
 						FicBooks[i][3] = NewLanguage;
 					   }while(check.digitChecker(NewLanguage));
 						break;
-		              case quantity:   
+		              
+						case quantity:   
 					   do{ 
 						cout<<"New quantity: ";
 			          	getline(cin, NewQuantity);	
 						FicBooks[i][4] = NewQuantity;
      				   }while(!check.digitChecker(NewQuantity));
 						break;
-		      	      default:
+		      	      
+						default:
 				        cout<<"invalid choice";
 		            }                        
 		 	     	return;
@@ -199,6 +204,7 @@ class UpdateBook : public SearchBook {
 			            getline(cin, Newtitle); 
 						NonFicBooks[i][0] =  Newtitle;        
 			            break;
+
 			          case author:
 			          do{ 
 					    cout<<"New author: ";
@@ -206,11 +212,15 @@ class UpdateBook : public SearchBook {
 			          	NonFicBooks[i][1] = NewAuthor;
   					   }while(check.digitChecker(NewAuthor));
 						break;
+
 			          case isbn:
+					  do{
 			            cout<<"New ISBN: ";
 			          	getline(cin, NewIsbn);
 			          	NonFicBooks[i][2] = NewIsbn;
+					   }while(!check.digitChecker(NewIsbn));
 			            break;
+
 		              case language:
 		              do{
 						cout<<"New Language: ";
@@ -218,10 +228,13 @@ class UpdateBook : public SearchBook {
 			          	NonFicBooks[i][3] = NewLanguage;
 			           }while(check.digitChecker(NewLanguage));
 						break;
+
 		              case quantity:
+					  do{
 		                cout<<"New quantity: ";
 		                getline(cin, NewQuantity);
 			          	NonFicBooks[i][4] = NewQuantity;
+					   }while(!check.digitChecker(NewQuantity));
 			            break;
 			          
 		      	      default:
