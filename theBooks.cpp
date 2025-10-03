@@ -184,6 +184,47 @@ class UpdateBook : public SearchBook {
 		            }                        
 		 	     	return;
 				 }
+			else if(NonFicBooks[i][0] == target){
+			    	cout<<NonFicBooks[i][0]<<setw(30)<<NonFicBooks[i][1]<<setw(30)<<NonFicBooks[i][2]<<setw(20)<<NonFicBooks[i][3]<<setw(20)<<NonFicBooks[i][4]<<endl;
+		 	     	cout<<"which part u wanna modify?\n"
+	                    <<"1.Title\n2.Author\n3.IBSN\n4.Language\n5.Quantity\n";
+		            int tempoEditable;
+					cin>> tempoEditable;
+					cin.ignore();
+					aboutBook editable;
+		            editable = static_cast<aboutBook> (tempoEditable);
+		            switch(editable){
+			          case title:
+					    cout<<"New title: ";
+			            getline(cin, Newtitle); 
+						NonFicBooks[i][0] =  Newtitle;        
+			            break;
+			          case author:
+			          	cout<<"New author: ";
+			          	getline(cin, NewAuthor);
+			          	NonFicBooks[i][1] = NewAuthor;
+			            break;
+			          case isbn:
+			            cout<<"New ISBN: ";
+			          	getline(cin, NewIsbn);
+			          	NonFicBooks[i][2] = NewIsbn;
+			            break;
+		              case language:
+		              	cout<<"New Language: ";
+			          	getline(cin, NewLanguage);	
+			          	NonFicBooks[i][3] = NewLanguage;
+			            break;
+		              case quantity:
+		                cout<<"New quantity: ";
+		                getline(cin, NewQuantity);
+			          	NonFicBooks[i][4] = NewQuantity;
+			            break;
+			          
+		      	      default:
+				        cout<<"invalid choice";
+		            }
+					return;
+				}
 		    }
 				cout<<"no such book";
 		}    
