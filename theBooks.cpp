@@ -200,20 +200,24 @@ class UpdateBook : public SearchBook {
 						NonFicBooks[i][0] =  Newtitle;        
 			            break;
 			          case author:
-			          	cout<<"New author: ";
+			          do{ 
+					    cout<<"New author: ";
 			          	getline(cin, NewAuthor);
 			          	NonFicBooks[i][1] = NewAuthor;
-			            break;
+  					   }while(check.digitChecker(NewAuthor));
+						break;
 			          case isbn:
 			            cout<<"New ISBN: ";
 			          	getline(cin, NewIsbn);
 			          	NonFicBooks[i][2] = NewIsbn;
 			            break;
 		              case language:
-		              	cout<<"New Language: ";
+		              do{
+						cout<<"New Language: ";
 			          	getline(cin, NewLanguage);	
 			          	NonFicBooks[i][3] = NewLanguage;
-			            break;
+			           }while(check.digitChecker(NewLanguage));
+						break;
 		              case quantity:
 		                cout<<"New quantity: ";
 		                getline(cin, NewQuantity);
